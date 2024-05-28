@@ -16,6 +16,7 @@ abstract class AppTheme {
           tertiary: const Color(0xff373737),
           onSecondaryContainer: const Color(0xff838383),
           onPrimary: const Color(0xffFFFFFF),
+          borderRadius: 8,
         ),
       ],
     );

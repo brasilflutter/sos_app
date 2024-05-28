@@ -10,6 +10,7 @@ class SosAppThemeExtension extends ThemeExtension<SosAppThemeExtension> {
     required this.tertiary,
     required this.onSecondaryContainer,
     required this.onPrimary,
+    required this.borderRadius,
   });
 
   final Color primaryColor;
@@ -20,6 +21,7 @@ class SosAppThemeExtension extends ThemeExtension<SosAppThemeExtension> {
   final Color tertiary;
   final Color onSecondaryContainer;
   final Color onPrimary;
+  final int borderRadius;
 
   @override
   ThemeExtension<SosAppThemeExtension> copyWith({
@@ -31,6 +33,7 @@ class SosAppThemeExtension extends ThemeExtension<SosAppThemeExtension> {
     Color? tertiary,
     Color? onSecondaryContainer,
     Color? onPrimary,
+    int? borderRadius,
   }) {
     return SosAppThemeExtension(
       primaryColor: primaryColor ?? this.primaryColor,
@@ -41,6 +44,7 @@ class SosAppThemeExtension extends ThemeExtension<SosAppThemeExtension> {
       tertiary: tertiary ?? this.tertiary,
       onSecondaryContainer: onSecondaryContainer ?? this.onSecondaryContainer,
       onPrimary: onPrimary ?? this.onPrimary,
+      borderRadius: borderRadius ?? this.borderRadius,
     );
   }
 
@@ -55,6 +59,7 @@ class SosAppThemeExtension extends ThemeExtension<SosAppThemeExtension> {
       tertiary: Color.lerp(tertiary, other.tertiary, t)!,
       onSecondaryContainer: Color.lerp(onSecondaryContainer, other.onSecondaryContainer, t)!,
       onPrimary: Color.lerp(onPrimary, other.onPrimary, t)!,
+      borderRadius: (borderRadius + (other.borderRadius - borderRadius) * t).toInt(),
     );
   }
 }
