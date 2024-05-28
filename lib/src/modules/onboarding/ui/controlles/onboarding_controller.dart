@@ -1,5 +1,5 @@
 import '../../../../app/theme/app_assets.dart';
-import '../../../../utilities/base_controller.dart';
+import '../../../../utilities/templates/base_controller.dart';
 import '../states/onboarding_state.dart';
 import '../viewmodels/onboarding.dart';
 
@@ -13,7 +13,7 @@ class OnboadingController extends BaseController<OnboardingState> {
     final sliders = [
       OnBoardingViewModel(
         text: '',
-        imagePath: AppAssets.onboardingImage1,
+        imagePath: AppAssets.logo,
       ),
       OnBoardingViewModel(
         text: 'Aqui você pode cadastrar animais desaparecidos',

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../app/theme/app_colors.dart';
 import '../../../../../app/theme/font_manager.dart';
-import '../../../../../utilities/responsive.dart';
+import '../../../../../utilities/extensions/responsive.dart';
 
 class OnboardingHeaderWidget extends StatelessWidget {
   const OnboardingHeaderWidget({

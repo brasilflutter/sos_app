@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../utilities/responsive.dart';
+import '../../utilities/extensions/responsive.dart';
 
 class CommonButtonWidget extends StatelessWidget {
   const CommonButtonWidget({

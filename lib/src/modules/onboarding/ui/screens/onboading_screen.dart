@@ -1,10 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import '../../../../app/app_routes.dart';
 import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/font_manager.dart';
 import '../../../../core/common_widgets/common_button.dart';
-import '../../../../utilities/responsive.dart';
+import '../../../../utilities/extensions/navigation.dart';
+import '../../../../utilities/extensions/responsive.dart';
 import '../controlles/onboarding_controller.dart';
 import '../states/onboarding_state.dart';
 import 'components/onboarding_header.dart';
@@ -35,45 +37,51 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: ValueListenableBuilder(
-          valueListenable: widget.controller,
-          builder: (_, state, __) {
-            if (state is OnboardingLoaded) {
-              return Column(
-                children: [
-                  OnboardingHeaderWidget(
-                    isInitial: state.currentIndex == 0,
-                    onJump: () {},
-                  ),
-                  SizedBox(height: 55.width),
-                  OnboardingSlidersWidget(
-                    sliders: state.sliders,
-                    currentIndex: state.currentIndex,
-                    onPageChanged: widget.controller.onChangeIndex,
-                  ),
-                  SizedBox(height: 52.width),
-                  CommonButtonWidget(
-                    width: 380.width,
-                    backgroundColor: AppColors.primaryColor,
-                    height: 56.width,
-                    label: state.currentIndex == 0 ? 'VAMOS COMEÇAR' : 'PRÓXIMO',
-                    textStyle: getSemiBoldStyle(
-                      color: Colors.white,
-                      fontSize: 16,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.width),
+          child: ValueListenableBuilder(
+            valueListenable: widget.controller,
+            builder: (_, state, __) {
+              if (state is OnboardingLoaded) {
+                return Column(
+                  children: [
+                    OnboardingHeaderWidget(
+                      isInitial: state.currentIndex == 0,
+                      onJump: () {},
                     ),
-                  ),
-                  SizedBox(height: 64.width),
-                  OnboardingIndicatorWidget(
-                    currentIndex: state.currentIndex,
-                    length: state.sliders.length,
-                  ),
-                ],
+                    SizedBox(height: 55.width),
+                    OnboardingSlidersWidget(
+                      sliders: state.sliders,
+                      currentIndex: state.currentIndex,
+                      onPageChanged: widget.controller.onChangeIndex,
+                    ),
+                    SizedBox(height: 52.width),
+                    CommonButtonWidget(
+                      width: 380.width,
+                      backgroundColor: AppColors.primaryColor,
+                      height: 56.width,
+                      onTap: () {
+                          context.navigate(AppRoutes.signIn.path);
+                      },
+                      label: state.currentIndex == 0 ? 'VAMOS COMEÇAR' : 'PRÓXIMO',
+                      textStyle: getSemiBoldStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                    SizedBox(height: 64.width),
+                    OnboardingIndicatorWidget(
+                      currentIndex: state.currentIndex,
+                      length: state.sliders.length,
+                    ),
+                  ],
+                );
+              }
+              return const Center(
+                child: CircularProgressIndicator(),
               );
-            }
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          },
+            },
+          ),
         ),
       ),
     );

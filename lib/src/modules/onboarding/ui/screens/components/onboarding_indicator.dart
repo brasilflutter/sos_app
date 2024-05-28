@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../app/theme/app_colors.dart';
-import '../../../../../utilities/responsive.dart';
+import '../../../../../utilities/extensions/responsive.dart';
 
 class OnboardingIndicatorWidget extends StatefulWidget {
   final int currentIndex;

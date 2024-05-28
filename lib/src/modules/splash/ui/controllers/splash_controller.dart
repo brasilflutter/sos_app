@@ -1,5 +1,5 @@
 import '../../../../app/app_routes.dart';
-import '../../../../utilities/base_controller.dart';
+import '../../../../utilities/templates/base_controller.dart';
 import '../states/splash_state.dart';
 
 class SplashController extends BaseController<SplashState> {
