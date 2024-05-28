@@ -1,17 +1,17 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import '../../../../../app/theme/app_colors.dart';
+import '../../../../../app/theme/extensions/sos_app_theme.dart';
+import '../../../../../utilities/extensions/build_context.dart';
 import '../../../../../utilities/extensions/responsive.dart';
 
 class OnboardingIndicatorWidget extends StatefulWidget {
-  final int currentIndex;
-  final int length;
   const OnboardingIndicatorWidget({
     required this.currentIndex,
     required this.length,
     Key? key,
   }) : super(key: key);
+  final int currentIndex;
+  final int length;
 
   @override
   State<OnboardingIndicatorWidget> createState() => _OnboardingIndicatorWidgetState();
@@ -20,6 +20,7 @@ class OnboardingIndicatorWidget extends StatefulWidget {
 class _OnboardingIndicatorWidgetState extends State<OnboardingIndicatorWidget> {
   @override
   Widget build(BuildContext context) {
+    final sosTheme = context.getExtension<SosAppThemeExtension>();
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(
@@ -30,9 +31,14 @@ class _OnboardingIndicatorWidgetState extends State<OnboardingIndicatorWidget> {
           width: 10.width,
           height: 10.width,
           decoration: BoxDecoration(
-            color: widget.currentIndex == index ? AppColors.primaryColor : Colors.white,
+            color: widget.currentIndex == index ? sosTheme.primaryColor : null,
             borderRadius: BorderRadius.circular(10),
-            border: widget.currentIndex == index ? null : Border.all(color: AppColors.primaryColor, width: 2),
+            border: widget.currentIndex == index
+                ? null
+                : Border.all(
+                    color: sosTheme.primaryColor,
+                    width: 2,
+                  ),
           ),
         ),
       ),

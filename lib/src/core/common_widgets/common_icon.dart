@@ -8,8 +8,8 @@ class CommonIconWidget extends StatefulWidget {
   final double? height;
   final Color? color;
   const CommonIconWidget({
-    super.key,
     required this.pathSvg,
+    super.key,
     this.width,
     this.height,
     this.color,

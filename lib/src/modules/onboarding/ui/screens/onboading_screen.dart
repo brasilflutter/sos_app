@@ -1,11 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import '../../../../app/app_routes.dart';
-import '../../../../app/theme/app_colors.dart';
+import '../../../../app/theme/extensions/sos_app_theme.dart';
 import '../../../../app/theme/font_manager.dart';
 import '../../../../core/common_widgets/common_button.dart';
-import '../../../../utilities/extensions/navigation.dart';
+import '../../../../utilities/extensions/build_context.dart';
 import '../../../../utilities/extensions/responsive.dart';
 import '../controlles/onboarding_controller.dart';
 import '../states/onboarding_state.dart';
@@ -35,6 +34,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final sosTheme = context.getExtension<SosAppThemeExtension>();
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -58,10 +58,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     SizedBox(height: 52.width),
                     CommonButtonWidget(
                       width: 380.width,
-                      backgroundColor: AppColors.primaryColor,
+                      backgroundColor: sosTheme.primaryColor,
                       height: 56.width,
                       onTap: () {
-                          context.navigate(AppRoutes.signIn.path);
+                        context.navigate(AppRoutes.signIn.path);
                       },
                       label: state.currentIndex == 0 ? 'VAMOS COMEÇAR' : 'PRÓXIMO',
                       textStyle: getSemiBoldStyle(

@@ -17,13 +17,8 @@ extension BuildContextExtension on BuildContext? {
     );
   }
 
-  Future<T?> showPopUp<T>(Widget child, {bool dismissible = true}) async {
-    if (this == null) return null;
-    return await showDialog<T>(
-      context: this!,
-      barrierDismissible: dismissible,
-      builder: (context) => child,
-    );
+  T getExtension<T>() {
+    return Theme.of(this!).extension<T>() as T;
   }
 
   T get<T extends Object>() {

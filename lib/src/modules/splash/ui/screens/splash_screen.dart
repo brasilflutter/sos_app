@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../app/theme/app_assets.dart';
 import '../../../../core/common_widgets/common_icon.dart';
-import '../../../../utilities/extensions/navigation.dart';
+import '../../../../utilities/extensions/build_context.dart';
 import '../../../../utilities/extensions/responsive.dart';
 import '../controllers/splash_controller.dart';
 import '../states/splash_state.dart';
