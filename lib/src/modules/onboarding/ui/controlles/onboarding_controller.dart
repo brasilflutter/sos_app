@@ -7,7 +7,7 @@ class OnboadingController extends BaseController<OnboardingState> {
   OnboadingController() : super(OnboardingInitial());
 
   @override
-  void init() {
+  Future<void> init() async{
     emit(OnboardingLoading());
 
     final sliders = [

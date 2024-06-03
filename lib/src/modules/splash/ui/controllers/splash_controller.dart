@@ -6,7 +6,7 @@ class SplashController extends BaseController<SplashState> {
   SplashController() : super(SplashInitial());
 
   @override
-  void init() {
+  Future<void> init() async {
     emit(SplashLoading());
     Future.delayed(const Duration(seconds: 3), () {
       emit(SplashLoaded(route: AppRoutes.onboarding.path));

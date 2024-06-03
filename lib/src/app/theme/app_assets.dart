@@ -4,4 +4,9 @@ abstract class AppAssets {
   static const String onboardingImage2 = 'assets/images/onboarding/image-2.svg';
   static const String onboardingImage3 = 'assets/images/onboarding/image-3.svg';
   static const String onboardingImage4 = 'assets/images/onboarding/image-4.svg';
+  static const String home = 'assets/images/bottom_navigation_bar/home.svg';
+  static const String pet = 'assets/images/bottom_navigation_bar/pet.svg';
+  static const String apoio = 'assets/images/bottom_navigation_bar/apoio.svg';
+  static const String perfil = 'assets/images/bottom_navigation_bar/perfil.svg';
+  static const String localizar = 'assets/images/bottom_navigation_bar/localizar.svg';
 }
