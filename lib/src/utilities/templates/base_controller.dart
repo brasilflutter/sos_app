@@ -5,7 +5,7 @@ abstract class BaseController<T> extends ValueNotifier<T> {
 
   T get currentState => value;
 
-  void init();
+  Future<void> init();
 
   void emit(T state) {
     if (hasListeners) {

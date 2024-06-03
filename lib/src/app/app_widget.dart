@@ -15,7 +15,7 @@ class AppWidget extends StatelessWidget {
         title: 'SOS App',
         routerConfig: Modular.routerConfig,
         debugShowCheckedModeBanner: false,
-        theme: AppTheme.lightTheme,
+        theme: AppTheme.instance.lightTheme,
       ),
     );
   }

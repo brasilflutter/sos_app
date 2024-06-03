@@ -11,6 +11,10 @@ class SosAppThemeExtension extends ThemeExtension<SosAppThemeExtension> {
     required this.onSecondaryContainer,
     required this.onPrimary,
     required this.borderRadius,
+    required this.labelStyle,
+    required this.placeholderStyle,
+    required this.errorStyle,
+    required this.bottomNavigationTextStyle,
   });
 
   final Color primaryColor;
@@ -22,6 +26,10 @@ class SosAppThemeExtension extends ThemeExtension<SosAppThemeExtension> {
   final Color onSecondaryContainer;
   final Color onPrimary;
   final int borderRadius;
+  final TextStyle labelStyle;
+  final TextStyle placeholderStyle;
+  final TextStyle errorStyle;
+  final TextStyle bottomNavigationTextStyle;
 
   @override
   ThemeExtension<SosAppThemeExtension> copyWith({
@@ -34,6 +42,10 @@ class SosAppThemeExtension extends ThemeExtension<SosAppThemeExtension> {
     Color? onSecondaryContainer,
     Color? onPrimary,
     int? borderRadius,
+    TextStyle? labelStyle,
+    TextStyle? placeholderStyle,
+    TextStyle? errorStyle,
+    TextStyle? bottomNavigationTextStyle,
   }) {
     return SosAppThemeExtension(
       primaryColor: primaryColor ?? this.primaryColor,
@@ -45,6 +57,10 @@ class SosAppThemeExtension extends ThemeExtension<SosAppThemeExtension> {
       onSecondaryContainer: onSecondaryContainer ?? this.onSecondaryContainer,
       onPrimary: onPrimary ?? this.onPrimary,
       borderRadius: borderRadius ?? this.borderRadius,
+      labelStyle: labelStyle ?? this.labelStyle,
+      placeholderStyle: placeholderStyle ?? this.placeholderStyle,
+      errorStyle: errorStyle ?? this.errorStyle,
+      bottomNavigationTextStyle: bottomNavigationTextStyle ?? this.bottomNavigationTextStyle,
     );
   }
 
@@ -60,6 +76,10 @@ class SosAppThemeExtension extends ThemeExtension<SosAppThemeExtension> {
       onSecondaryContainer: Color.lerp(onSecondaryContainer, other.onSecondaryContainer, t)!,
       onPrimary: Color.lerp(onPrimary, other.onPrimary, t)!,
       borderRadius: (borderRadius + (other.borderRadius - borderRadius) * t).toInt(),
+      labelStyle: TextStyle.lerp(labelStyle, other.labelStyle, t)!,
+      placeholderStyle: TextStyle.lerp(placeholderStyle, other.placeholderStyle, t)!,
+      errorStyle: TextStyle.lerp(errorStyle, other.errorStyle, t)!,
+      bottomNavigationTextStyle: TextStyle.lerp(bottomNavigationTextStyle, other.bottomNavigationTextStyle, t)!,
     );
   }
 }
