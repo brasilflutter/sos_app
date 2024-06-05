@@ -34,7 +34,7 @@ class _PetCadastroPageState extends State<PetCadastroPage> {
           FilledButton(
             onPressed: () {},
             child: const Text('Salvar'),
-          )
+          ),
         ],
       ),
     );
