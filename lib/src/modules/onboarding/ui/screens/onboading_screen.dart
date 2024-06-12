@@ -61,9 +61,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       backgroundColor: sosTheme.primaryColor,
                       height: 56.width,
                       onTap: () {
-                        context.navigate(AppRoutes.signIn.path);
+                        context.navigate(AppRoutes.auth);
                       },
-                      label: state.currentIndex == 0 ? 'VAMOS COMEÇAR' : 'PRÓXIMO',
+                      label:
+                          state.currentIndex == 0 ? 'VAMOS COMEÇAR' : 'PRÓXIMO',
                       textStyle: getSemiBoldStyle(
                         color: Colors.white,
                         fontSize: 16,
