@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../../../../app/theme/extensions/sos_app_theme.dart';
 import '../../../../../app/theme/font_manager.dart';
+import '../../../../../core/common_widgets/common_button.dart';
 import '../../../../../core/common_widgets/common_checkbox.dart';
 import '../../../../../core/common_widgets/common_text_field.dart';
 import '../../../../../utilities/extensions/build_context.dart';
 import '../../../../../utilities/extensions/responsive.dart';
+import 'auth_header.dart';
 
 class AuthFormSignUpWidget extends StatelessWidget {
   const AuthFormSignUpWidget({
@@ -14,13 +16,16 @@ class AuthFormSignUpWidget extends StatelessWidget {
     required this.confirmPasswordController,
     required this.acceptTerms,
     required this.onAcceptTermsChanged,
+    required this.onSubmit,
     super.key,
   });
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final TextEditingController confirmPasswordController;
   final bool acceptTerms;
-  final void Function(bool) onAcceptTermsChanged;
+  final ValueChanged<bool> onAcceptTermsChanged;
+
+  final VoidCallback onSubmit;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +36,10 @@ class AuthFormSignUpWidget extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            const AuthHeaderWidget(
+              title: 'Criar conta',
+              subTitle: '',
+            ),
             CommonTextField(
               label: 'E-mail',
               placeholder: 'exemplo@gmail.com',
@@ -77,6 +86,18 @@ class AuthFormSignUpWidget extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            const Spacer(),
+            CommonButtonWidget(
+              label: 'Sign Up',
+              width: 380.width,
+              height: 65.width,
+              backgroundColor: theme.primaryColor,
+              textStyle: getSemiBoldStyle(
+                color: Colors.white,
+                fontSize: 16.sp,
+              ),
+              onTap: onSubmit,
             ),
           ],
         ),

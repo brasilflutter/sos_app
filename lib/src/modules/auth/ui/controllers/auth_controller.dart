@@ -1,45 +1,49 @@
 import 'package:flutter/material.dart';
 
 import '../../../../utilities/templates/base_controller.dart';
+import '../../domain/auth_repository.dart';
+import '../../domain/entities/sign_in_params_entity.dart';
+import '../../domain/entities/sign_up_params_entity.dart';
 import '../states/auth_state.dart';
-import '../viewmodels/auth.dart';
 
 class AuthController extends BaseController<AuthState> {
-  AuthController() : super(AuthInitial());
+  AuthController(
+    this.authRepository,
+  ) : super(AuthInitial());
+
+  final AuthRepository authRepository;
 
   Future<void> signIn({
     required String email,
     required String password,
-  }) async {}
+  }) async {
+    authRepository.signInWithEmailAndPassword(
+      SignInParamsEntity(email: email, password: password),
+    );
+  }
 
   Future<void> signUp({
     required String email,
     required String password,
     required String confirmPassword,
-  }) async {}
+  }) async {
+    authRepository.signUpWithEmailAndPassword(
+      SignUpParamsEntity(
+        email: email,
+        password: password,
+      ),
+    );
+  }
 
   @override
   Future<void> init() async {
-    emit(AuthLoading());
-    await Future.delayed(const Duration(seconds: 2));
-    final viewmodels = [
-      AuthViewModel(
-        title: 'Login',
-        subTitle: 'Seja bem vindo!',
-      ),
-      AuthViewModel(
-        title: 'Criar conta',
-      ),
-    ];
     emit(
       AuthLoaded(
         currentPage: 0,
-        viewModel: viewmodels[0],
         emailController: TextEditingController(),
         passwordController: TextEditingController(),
         confirmPasswordController: TextEditingController(),
         acceptTerms: false,
-        viewModels: viewmodels,
       ),
     );
   }
@@ -50,7 +54,6 @@ class AuthController extends BaseController<AuthState> {
       emit(
         state.copyWith(
           currentPage: index,
-          viewModel: state.viewModels[index],
         ),
       );
     }

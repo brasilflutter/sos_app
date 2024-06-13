@@ -9,7 +9,7 @@ class SplashController extends BaseController<SplashState> {
   Future<void> init() async {
     emit(SplashLoading());
     Future.delayed(const Duration(seconds: 3), () {
-      emit(SplashLoaded(route: AppRoutes.onboarding.path));
+      emit(SplashLoaded(route: AppRoutes.onboarding));
     });
   }
 }
